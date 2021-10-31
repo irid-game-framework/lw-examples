@@ -1,13 +1,13 @@
 [workspace]
 resolver = "2"
 members = [
-    "lw_examples/lw01_window",
-    "lw_examples/lw02_swapchain",
-    "lw_examples/lw03_pipeline",
-    "lw_examples/lw04_buffers_indices",
-    "lw_examples/lw05_textures_bind_groups",
-    "lw_examples/lw06_uniforms_3d_camera",
-    "lw_examples/lw07_instancing",
-    "lw_examples/lw08_depth_buffer",
-    "lw_examples/lw09_model_loading",
+    "lw01_window",
+    "lw02_swapchain",
+    "lw03_pipeline",
+    "lw04_buffers_indices",
+    "lw05_textures_bind_groups",
+    "lw06_uniforms_3d_camera",
+    "lw07_instancing",
+    "lw08_depth_buffer",
+    "lw09_model_loading",
 ]
