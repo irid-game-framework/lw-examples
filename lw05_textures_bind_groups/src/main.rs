@@ -1,4 +1,3 @@
-
 //= USES ===========================================================================================
 
 use std::collections::HashMap;
@@ -9,7 +8,6 @@ use winit::dpi::PhysicalSize;
 
 use irid::app::{Application, ApplicationBuilder, ConfigBuilder, Listener};
 use irid::renderer::VertexTexture;
-
 
 //= GAME LOGIC =====================================================================================
 
@@ -37,7 +35,6 @@ impl Listener for GameListener {
     }
 }
 
-
 //= MAIN ===========================================================================================
 
 fn main() {
@@ -53,15 +50,15 @@ fn main() {
         })
         .build();
 
-    let listener: &GameListener = &GameListener { };
+    let listener = &GameListener { };
 
     const SHADER_WGSL_FILENAME: &str = "shader.wgsl";
     const SHADER_WGSL_FILEPATH: &str = "D:/_BLACK_ABYSS_DUNGEON/_BAD/shaded_sun/lw_examples/lw05_textures_bind_groups/assets/shader.wgsl";
 
-    // TODO: Passare solo la path o il nome file
-    let mut shaders: HashMap<String, String> = HashMap::new();
+    // TODO give path or filename only
+    let mut shaders = HashMap::new();
     let frag_wgsl = match read_to_string(SHADER_WGSL_FILEPATH) {
-        Ok(file) => file.clone(),  // TODO: Cercare di rimuovere il clone
+        Ok(file) => file.clone(),  // TODO try to remove the clone
         Err(why) => panic!("couldn't open {} file: {}", SHADER_WGSL_FILENAME, why),
     };
     shaders.insert(SHADER_WGSL_FILENAME.to_string(), frag_wgsl);
@@ -87,6 +84,6 @@ fn main() {
         /* padding */ 0,
     ];
 
-    let app = ApplicationBuilder::new_with_config(config).build();
-    app.start(listener);
+    let application = ApplicationBuilder::new_with_config(config).build();
+    application.start(listener);
 }

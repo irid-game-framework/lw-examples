@@ -1,10 +1,9 @@
-
 //= USES ===========================================================================================
 
-use irid::app::{ApplicationBuilder, Config, ConfigBuilder, Listener};
 use wgpu::Color;
 use winit::dpi::PhysicalSize;
 
+use irid::app::{ApplicationBuilder, Config, ConfigBuilder, Listener};
 
 //= GAME LOGIC =====================================================================================
 
@@ -32,7 +31,6 @@ impl Listener for GameListener {
     }
 }
 
-
 //= MAIN ===========================================================================================
 
 fn main() {
@@ -48,8 +46,8 @@ fn main() {
         })
         .build();
 
-    let listener: &GameListener = &GameListener { };
+    let listener = &GameListener { };
 
-    let app = ApplicationBuilder::new_with_config(config).build();
-    app.start(listener);
+    let application = ApplicationBuilder::new_with_config(config).build();
+    application.start(listener);
 }

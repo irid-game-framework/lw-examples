@@ -1,4 +1,4 @@
-// Vertex shader
+//- Vertex Shader ----------------------------------------------------------------------------------
 
 struct VertexInput {
     [[location(0)]] position: vec3<f32>;
@@ -20,7 +20,7 @@ fn main(
     return out;
 }
 
-// Fragment shader
+//- Fragment Shader --------------------------------------------------------------------------------
 
 [[group(0), binding(0)]]
 var t_diffuse: texture_2d<f32>;

@@ -1,9 +1,8 @@
-
 //= USES ===========================================================================================
 
-use irid::app::{Application, ApplicationBuilder, Listener};
 use winit::dpi::PhysicalSize;
 
+use irid::app::{Application, ApplicationBuilder, Listener};
 
 //= GAME LOGIC =====================================================================================
 
@@ -31,14 +30,13 @@ impl Listener for GameListener {
     }
 }
 
-
 //= MAIN ===========================================================================================
 
 fn main() {
     env_logger::init();
 
-    let listener: &'static GameListener = &GameListener { };
+    let listener = &GameListener { };
 
-    let app = ApplicationBuilder::default().build();
-    app.start(listener);
+    let application = ApplicationBuilder::default().build();
+    application.start(listener);
 }

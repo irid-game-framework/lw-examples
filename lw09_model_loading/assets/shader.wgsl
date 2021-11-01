@@ -1,4 +1,4 @@
-// Vertex shader
+//- Vertex Shader ----------------------------------------------------------------------------------
 
 [[block]]
 struct Camera {
@@ -40,7 +40,7 @@ fn vs_main(
     return out;
 }
 
-// Fragment shader
+//- Fragment Shader --------------------------------------------------------------------------------
 
 [[group(0), binding(0)]]
 var t_diffuse: texture_2d<f32>;
