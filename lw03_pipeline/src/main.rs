@@ -6,7 +6,7 @@ use std::fs::read_to_string;
 use wgpu::Color;
 use winit::dpi::PhysicalSize;
 
-use irid::app::{Application, ApplicationBuilder, Config, ConfigBuilder, Listener};
+use irid::{ApplicationBuilder, ApplicationConfig, AppConfigBuilder, Listener};
 
 //= GAME LOGIC =====================================================================================
 
@@ -40,7 +40,7 @@ fn main() {
     log::set_max_level(log::LevelFilter::Error);
     env_logger::init();
 
-    let config = ConfigBuilder::new()
+    let config = AppConfigBuilder::new()
         .with_clear_color(Color {
             r: 0.1,
             g: 0.2,

@@ -12,5 +12,5 @@ log = "0.4"
 wgpu = "0.11"
 winit = "0.25"
 
-[dependencies.irid-framework]
+[dependencies.irid]
 git = "https://github.com/CatCode79/irid-framework"

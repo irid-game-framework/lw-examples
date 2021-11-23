@@ -6,8 +6,8 @@ use std::fs::read_to_string;
 use wgpu::Color;
 use winit::dpi::PhysicalSize;
 
-use irid::app::{Application, ApplicationBuilder, ConfigBuilder, Listener};
-use irid::renderer::VertexColor;
+use irid::{ApplicationBuilder, AppConfigBuilder, Listener};
+use irid_assets::ColorVertex;
 
 //= GAME LOGIC =====================================================================================
 
@@ -41,7 +41,7 @@ fn main() {
     log::set_max_level(log::LevelFilter::Error);
     env_logger::init();
 
-    let config = ConfigBuilder::new()
+    let config = AppConfigBuilder::new()
         .with_clear_color(Color {
             r: 0.1,
             g: 0.2,
@@ -67,12 +67,12 @@ fn main() {
     // We do it this way partially out of tradition, but mostly because we specified in the
     // rasterization_state of the render_pipeline that we want the front_face of our triangle
     // to be wgpu::FrontFace::Ccw so that we cull the back face.
-    const VERTICES: &[VertexColor] = &[
-        VertexColor { position: [-0.08682410,  0.49240386, 0.0], color: [0.5, 0.0, 0.5] },
-        VertexColor { position: [-0.49513406,  0.06958647, 0.0], color: [0.5, 0.0, 0.5] },
-        VertexColor { position: [-0.21918549, -0.44939706, 0.0], color: [0.5, 0.0, 0.5] },
-        VertexColor { position: [ 0.35966998, -0.34732910, 0.0], color: [0.5, 0.0, 0.5] },
-        VertexColor { position: [ 0.44147372,  0.23473590, 0.0], color: [0.5, 0.0, 0.5] },
+    const VERTICES: &[ColorVertex] = &[
+        ColorVertex { position: [-0.08682410,  0.49240386, 0.0], colors: [0.5, 0.0, 0.5] },
+        ColorVertex { position: [-0.49513406,  0.06958647, 0.0], colors: [0.5, 0.0, 0.5] },
+        ColorVertex { position: [-0.21918549, -0.44939706, 0.0], colors: [0.5, 0.0, 0.5] },
+        ColorVertex { position: [ 0.35966998, -0.34732910, 0.0], colors: [0.5, 0.0, 0.5] },
+        ColorVertex { position: [ 0.44147372,  0.23473590, 0.0], colors: [0.5, 0.0, 0.5] },
     ];
 
     const INDICES: &[u16] = &[
