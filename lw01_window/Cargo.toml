@@ -8,8 +8,6 @@ publish = false
 
 [dependencies]
 env_logger = "0.8"
+irid = { git="https://github.com/CatCode79/irid-framework", rev="master" }
 log = "0.4"
 winit = "0.25"
-
-[dependencies.irid]
-git = "https://github.com/CatCode79/irid-framework"
