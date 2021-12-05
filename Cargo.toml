@@ -2,12 +2,12 @@
 resolver = "2"
 members = [
     "lw01_window",
-    "lw02_swapchain",
-    "lw03_pipeline",
-    "lw04_buffers_indices",
-    "lw05_textures_bind_groups",
-    "lw06_uniforms_3d_camera",
-    "lw07_instancing",
-    "lw08_depth_buffer",
-    "lw09_model_loading",
+#    "lw02_swapchain",
+#    "lw03_pipeline",
+#    "lw04_buffers_indices",
+#    "lw05_textures_bind_groups",
+#    "lw06_uniforms_3d_camera",
+#    "lw07_instancing",
+#    "lw08_depth_buffer",
+#    "lw09_model_loading",
 ]

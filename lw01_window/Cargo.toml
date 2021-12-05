@@ -7,7 +7,8 @@ description = "based on https://sotrh.github.io/learn-wgpu/beginner/tutorial1-wi
 publish = false
 
 [dependencies]
-env_logger = "0.8"
-irid = { git="https://github.com/CatCode79/irid-framework", rev="master" }
+env_logger = "0.9"
+#irid = { git="https://github.com/irid-game-framework/irid" }
+irid = { path="D:/_IRID_PROJECT/_IRID-FRAMEWORK/irid-framework/irid" }
 log = "0.4"
 winit = "0.25"

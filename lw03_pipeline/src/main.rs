@@ -4,32 +4,15 @@ use std::collections::HashMap;
 use std::fs::read_to_string;
 
 use wgpu::Color;
-use winit::dpi::PhysicalSize;
 
-use irid::{ApplicationBuilder, ApplicationConfig, AppConfigBuilder, Listener};
+use irid::{ApplicationBuilder, Listener};
 
 //= GAME LOGIC =====================================================================================
 
 struct GameListener {}
 
 impl Listener for GameListener {
-    fn on_suspend(&self) -> bool {
-        true
-    }
-
-    fn on_resume(&self) -> bool {
-        true
-    }
-
     fn on_redraw(&self) -> bool {
-        true
-    }
-
-    fn on_destroy(&self) -> bool {
-        true
-    }
-
-    fn on_window_resize(&self, _new_size: PhysicalSize<u32>) -> bool {
         true
     }
 }
@@ -37,19 +20,10 @@ impl Listener for GameListener {
 //= MAIN ===========================================================================================
 
 fn main() {
-    log::set_max_level(log::LevelFilter::Error);
+    log::set_max_level(log::LevelFilter::Debug);
     env_logger::init();
 
-    let config = AppConfigBuilder::new()
-        .with_clear_color(Color {
-            r: 0.1,
-            g: 0.2,
-            b: 0.3,
-            a: 1.0,
-        })
-        .build();
-
-    let listener = &GameListener { };
+    let listener = GameListener { };
 
     const SHADER_WGSL_FILENAME: &str = "shader.wgsl";
     const SHADER_WGSL_FILEPATH: &str = "D:/_BLACK_ABYSS_DUNGEON/_BAD/shaded_sun/lw_examples/lw03_pipeline/assets";
@@ -62,8 +36,13 @@ fn main() {
     };
     shaders.insert(SHADER_WGSL_FILENAME.to_string(), frag_wgsl);
 
-    let application = ApplicationBuilder::new_with_config(config)
-        .with_shaders(shaders)
+    let application = ApplicationBuilder::new(listener)
+        .with_clear_color(Color {
+            r: 0.1,
+            g: 0.2,
+            b: 0.3,
+            a: 1.0,
+        })
         .build();
-    application.start(listener);
+    let _ = application.start();
 }

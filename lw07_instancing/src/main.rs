@@ -39,7 +39,7 @@ impl Listener for GameListener {
 //= MAIN ===========================================================================================
 
 fn main() {
-    log::set_max_level(log::LevelFilter::Error);
+    log::set_max_level(log::LevelFilter::Debug);
     env_logger::init();
 
     let config = AppConfigBuilder::new()
