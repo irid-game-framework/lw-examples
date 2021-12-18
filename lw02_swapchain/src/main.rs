@@ -22,13 +22,15 @@ fn main() {
 
     let listener = GameListener { };
 
+    let clear_color = Color {
+        r: 0.1,
+        g: 0.2,
+        b: 0.3,
+        a: 1.0,
+    };
+
     let application = ApplicationBuilder::new(listener)
-        .with_clear_color(Color {
-            r: 0.1,
-            g: 0.2,
-            b: 0.3,
-            a: 1.0,
-        })
+        .with_clear_color(clear_color)
         .build();
     let _ = application.start();
 }
