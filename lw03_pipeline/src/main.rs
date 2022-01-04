@@ -30,7 +30,7 @@ fn main() {
     };
 
     let shader_paths = vec![
-        "assets/shader.wgsl"
+        "lw03_pipeline/assets/shader.wgsl"
     ];
 
     let application = ApplicationBuilder::new(listener)
