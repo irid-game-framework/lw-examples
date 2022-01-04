@@ -34,8 +34,8 @@ fn main() {
     ];
 
     let application = ApplicationBuilder::new(listener)
-        .with_shader_paths(shader_paths)
         .with_clear_color(clear_color)
+        .with_shader_paths(shader_paths)
         .build();
     let _ = application.start();
 }
