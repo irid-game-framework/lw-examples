@@ -2,8 +2,8 @@
 resolver = "2"
 members = [
     "lw01_window",
-#    "lw02_swapchain",
-#    "lw03_pipeline",
+    "lw02_swapchain",
+    "lw03_pipeline",
 #    "lw04_buffers_indices",
 #    "lw05_textures_bind_groups",
 #    "lw06_uniforms_3d_camera",

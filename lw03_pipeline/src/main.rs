@@ -1,8 +1,5 @@
 //= USES ===========================================================================================
 
-use std::collections::HashMap;
-use std::fs::read_to_string;
-
 use wgpu::Color;
 
 use irid::{ApplicationBuilder, Listener};
@@ -33,7 +30,7 @@ fn main() {
     };
 
     let shader_paths = vec![
-        "D:/_BLACK_ABYSS_DUNGEON/_BAD/shaded_sun/lw_examples/lw03_pipeline/assets/shader.wgsl"
+        "assets/shader.wgsl"
     ];
 
     let application = ApplicationBuilder::new(listener)
