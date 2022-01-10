@@ -37,7 +37,7 @@ fn main() {
     // rasterization_state of the render_pipeline that we want the front_face of our triangle
     // to be wgpu::FrontFace::Ccw so that we cull the back face.
     #[rustfmt::skip]
-    let vertices: &[ColorVertex] = &[
+    let vertices = &[
         ColorVertex { position: [-0.08682410,  0.49240386, 0.0], colors: [0.5, 0.0, 0.5] },
         ColorVertex { position: [-0.49513406,  0.06958647, 0.0], colors: [0.5, 0.0, 0.5] },
         ColorVertex { position: [-0.21918549, -0.44939706, 0.0], colors: [0.5, 0.0, 0.5] },
@@ -46,10 +46,10 @@ fn main() {
     ];
 
     #[rustfmt::skip]
-    let indices: &[u16] = &[
+    let indices = &[
         0, 1, 4,
         1, 2, 4,
-        2, 3, 4,
+        2, 3, 4_u16,
         /* padding */ 0,
     ];
 
