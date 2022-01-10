@@ -20,7 +20,7 @@ fn main() {
     log::set_max_level(log::LevelFilter::Debug);
     env_logger::init();
 
-    let listener = GameListener { };
+    let listener = GameListener {};
 
     let clear_color = Color {
         r: 0.1,
