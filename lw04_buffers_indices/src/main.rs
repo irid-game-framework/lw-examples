@@ -50,7 +50,6 @@ fn main() {
         0, 1, 4,
         1, 2, 4,
         2, 3, 4_u16,
-        /* padding */ 0,
     ];
 
     let application: Application<'_, _, _, _, &str, _, _> =
