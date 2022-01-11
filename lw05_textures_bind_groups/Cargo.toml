@@ -1,6 +1,6 @@
 [package]
 name = "lw05_textures_bind_groups"
-version = "0.0.11"
+version = "0.0.12"
 authors = ["CatCode79 https://github.com/CatCode79"]
 edition = "2018"
 rust-version = "1.48"
@@ -16,5 +16,5 @@ env_logger = "0.9"
 irid = { path="D:/_IRID_PROJECT/_IRID-FRAMEWORK/irid-framework/irid"}
 irid_assets = { path="D:/_IRID_PROJECT/_IRID-FRAMEWORK/irid-framework/irid_assets"}
 log = "0.4"
-wgpu = "0.11"
+wgpu = "0.12"
 winit = "0.26"
