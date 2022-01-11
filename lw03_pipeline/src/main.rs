@@ -2,7 +2,7 @@
 
 use wgpu::Color;
 
-use irid::{ApplicationBuilder, Listener};
+use irid::{Application, ApplicationBuilder, ColorVertex, Listener};
 
 //= GAME LOGIC =====================================================================================
 
@@ -31,9 +31,10 @@ fn main() {
 
     let shader_paths = vec!["lw03_pipeline/assets/shader.wgsl"];
 
-    let application = ApplicationBuilder::new(listener)
-        .with_clear_color(clear_color)
-        .with_shader_paths(shader_paths)
-        .build();
+    let application: Application<'_, _, _, _, &str, ColorVertex, u16> =
+        ApplicationBuilder::new(listener)
+            .with_clear_color(clear_color)
+            .with_shader_paths(shader_paths)
+            .build();
     let _ = application.start();
 }

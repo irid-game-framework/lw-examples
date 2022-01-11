@@ -2,7 +2,7 @@
 
 use wgpu::Color;
 
-use irid::{ApplicationBuilder, Listener};
+use irid::{Application, ApplicationBuilder, Listener};
 use irid_assets::ColorVertex;
 
 //= GAME LOGIC =====================================================================================
@@ -53,11 +53,12 @@ fn main() {
         /* padding */ 0,
     ];
 
-    let application = ApplicationBuilder::new(listener)
-        .with_clear_color(clear_color)
-        .with_shader_paths(shader_paths)
-        .with_vertices(vertices)
-        .with_indices(indices)
-        .build();
+    let application: Application<'_, _, _, _, &str, _, _> =
+        ApplicationBuilder::new(listener)
+            .with_clear_color(clear_color)
+            .with_shader_paths(shader_paths)
+            .with_vertices(vertices)
+            .with_indices(indices)
+            .build();
     let _ = application.start();
 }

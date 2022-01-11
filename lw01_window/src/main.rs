@@ -1,6 +1,6 @@
 //= USES ===========================================================================================
 
-use irid::{ApplicationBuilder, Listener};
+use irid::{Application, ApplicationBuilder, ColorVertex, Listener};
 
 //= LISTENER =======================================================================================
 
@@ -20,6 +20,7 @@ fn main() {
 
     let listener = GameListener {};
 
-    let application = ApplicationBuilder::new(listener).build();
+    let application: Application<'_, _, _, &str, &str, ColorVertex, u16> =
+        ApplicationBuilder::new(listener).build();
     let _ = application.start();
 }

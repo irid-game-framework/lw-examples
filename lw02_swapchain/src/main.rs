@@ -2,7 +2,7 @@
 
 use wgpu::Color;
 
-use irid::{ApplicationBuilder, Listener};
+use irid::{Application, ApplicationBuilder, ColorVertex, Listener};
 
 //= LISTENER =======================================================================================
 
@@ -29,8 +29,9 @@ fn main() {
         a: 1.0,
     };
 
-    let application = ApplicationBuilder::new(listener)
-        .with_clear_color(clear_color)
-        .build();
+    let application: Application<'_, _, _, &str, &str, ColorVertex, u16> =
+        ApplicationBuilder::new(listener)
+            .with_clear_color(clear_color)
+            .build();
     let _ = application.start();
 }
