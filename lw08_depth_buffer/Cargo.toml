@@ -17,4 +17,4 @@ log = "0.4"
 irid = { path="D:/_IRID_PROJECT/_IRID-FRAMEWORK/irid-framework/irid"}
 irid_assets = { path="D:/_IRID_PROJECT/_IRID-FRAMEWORK/irid-framework/irid_assets"}
 wgpu = "0.11"
-winit = "0.25"
+winit = "0.26"

@@ -13,4 +13,4 @@ publish = false
 env_logger = "0.9"
 irid = { git="https://github.com/irid-game-framework/irid" }
 log = "0.4"
-winit = "0.25"
+winit = "0.26"
