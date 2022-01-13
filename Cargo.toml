@@ -6,7 +6,7 @@ members = [
     "lw03_pipeline",
     "lw04_buffers_indices",
     "lw05_textures_bind_groups",
-#    "lw06_uniforms_3d_camera",
+    "lw06_uniforms_3d_camera",
 #    "lw07_instancing",
 #    "lw08_depth_buffer",
 #    "lw09_model_loading",
