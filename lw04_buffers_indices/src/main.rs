@@ -52,12 +52,11 @@ fn main() {
         2, 3, 4_u16,
     ];
 
-    let application: Application<'_, _, _, _, &str, _, _> =
-        ApplicationBuilder::new(listener)
-            .with_clear_color(clear_color)
-            .with_shader_paths(shader_paths)
-            .with_vertices(vertices)
-            .with_indices(indices)
-            .build();
+    let application: Application<'_, _, _, _, &str, _, _> = ApplicationBuilder::new(listener)
+        .with_clear_color(clear_color)
+        .with_shader_paths(shader_paths)
+        .with_vertices(vertices)
+        .with_indices(indices)
+        .build();
     let _ = application.start();
 }
