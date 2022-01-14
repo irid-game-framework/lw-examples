@@ -34,10 +34,6 @@ fn main() {
 
     let texture_path = "lw06_uniforms_3d_camera/assets/happy-tree.png";
 
-    // We arrange the vertices in counter clockwise order: top, bottom left, bottom right.
-    // We do it this way partially out of tradition, but mostly because we specified in the
-    // rasterization_state of the render_pipeline that we want the front_face of our triangle
-    // to be wgpu::FrontFace::Ccw so that we cull the back face.
     #[rustfmt::skip]
     let vertices = &[
         TextCoordsVertex { position: [-0.08682410,  0.49240386, 0.0], tex_coords: [0.4131759000, 0.00759614], },

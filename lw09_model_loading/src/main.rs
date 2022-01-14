@@ -64,16 +64,12 @@ fn main() {
 
     const TREE_FILEPATH: &str = "D:/_BLACK_ABYSS_DUNGEON/_BAD/shaded_sun/lw_examples/lw09_model_loading/assets/happy-tree.png";
 
-    // We arrange the vertices in counter clockwise order: top, bottom left, bottom right.
-    // We do it this way partially out of tradition, but mostly because we specified in the
-    // rasterization_state of the render_pipeline that we want the front_face of our triangle
-    // to be wgpu::FrontFace::Ccw so that we cull the back face.
     const VERTICES: &[irid::assets::ModelVertex] = &[];
 
-    const INDICES: &[u32] = &[
+    const INDICES: &[u16] = &[
         0, 1, 4,
         1, 2, 4,
-        2, 3, 4,
+        2, 3, 4_u16,
     ];
 
     let application = ApplicationBuilder::new_with_config(config)

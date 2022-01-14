@@ -65,10 +65,6 @@ fn main() {
 
     const TREE_FILEPATH: &str = "D:/_BLACK_ABYSS_DUNGEON/_BAD/shaded_sun/lw_examples/lw08_depth_buffer/assets/happy-tree.png";
 
-    // We arrange the vertices in counter clockwise order: top, bottom left, bottom right.
-    // We do it this way partially out of tradition, but mostly because we specified in the
-    // rasterization_state of the render_pipeline that we want the front_face of our triangle
-    // to be wgpu::FrontFace::Ccw so that we cull the back face.
     const VERTICES: &[TextCoordsVertex] = &[
         TextCoordsVertex { position: [-0.08682410,  0.49240386, 0.0], tex_coords: [0.4131759000, 0.00759614], },
         TextCoordsVertex { position: [-0.49513406,  0.06958647, 0.0], tex_coords: [0.0048659444, 0.43041354], },
@@ -80,7 +76,7 @@ fn main() {
     const INDICES: &[u16] = &[
         0, 1, 4,
         1, 2, 4,
-        2, 3, 4,
+        2, 3, 4_u16,
     ];
 
     let application = ApplicationBuilder::new_with_config(config)
