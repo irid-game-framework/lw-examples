@@ -4,7 +4,7 @@ use wgpu::Color;
 
 use irid::{Application, ApplicationBuilder, ColorVertex, Listener};
 
-//= LISTENER =======================================================================================
+//= GAME LOGIC =====================================================================================
 
 struct GameListener {}
 

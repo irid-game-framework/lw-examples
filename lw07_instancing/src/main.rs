@@ -18,8 +18,10 @@ impl Listener for GameListener {
 //= MAIN ===========================================================================================
 
 fn main() {
-    log::set_max_level(log::LevelFilter::Error);
+    log::set_max_level(log::LevelFilter::Debug);
     env_logger::init();
+
+    let listener = GameListener {};
 
     let clear_color = Color {
         r: 0.1,
@@ -27,8 +29,6 @@ fn main() {
         b: 0.3,
         a: 1.0,
     };
-
-    let listener = GameListener {};
 
     let shader_paths = vec!["lw07_instancing/assets/shader.wgsl"];
 
