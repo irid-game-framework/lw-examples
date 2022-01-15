@@ -1,35 +1,16 @@
 //= USES ===========================================================================================
 
-use std::collections::HashMap;
-use std::fs::read_to_string;
-
 use wgpu::Color;
-use winit::dpi::PhysicalSize;
 
-use irid::app::{ApplicationBuilder, ConfigBuilder, Listener};
+use irid::{ApplicationBuilder, Listener};
+use irid_assets::TextCoordsVertex;
 
 //= GAME LOGIC =====================================================================================
 
 struct GameListener {}
 
 impl Listener for GameListener {
-    fn on_suspend(&self) -> bool {
-        true
-    }
-
-    fn on_resume(&self) -> bool {
-        true
-    }
-
     fn on_redraw(&self) -> bool {
-        true
-    }
-
-    fn on_destroy(&self) -> bool {
-        true
-    }
-
-    fn on_window_resize(&self, _new_size: PhysicalSize<u32>) -> bool {
         true
     }
 }
@@ -40,43 +21,35 @@ fn main() {
     log::set_max_level(log::LevelFilter::Debug);
     env_logger::init();
 
-    let config = ConfigBuilder::new()
-        .with_clear_color(Color {
-            r: 0.1,
-            g: 0.2,
-            b: 0.3,
-            a: 1.0,
-        })
-        .build();
+    let listener = GameListener { };
 
-    let listener = &GameListener { };
-
-    const SHADER_WGSL_FILENAME: &str = "shader.wgsl";
-    const SHADER_WGSL_FILEPATH: &str = "D:/_BLACK_ABYSS_DUNGEON/_BAD/shaded_sun/lw_examples/lw09_model_loading/assets/shader.wgsl";
-
-    // TODO give path or filename only
-    let mut shaders = HashMap::new();
-    let frag_wgsl = match read_to_string(SHADER_WGSL_FILEPATH) {
-        Ok(file) => file,
-        Err(why) => panic!("couldn't open {} file: {}", SHADER_WGSL_FILENAME, why),
+    let clear_color = Color {
+        r: 0.1,
+        g: 0.2,
+        b: 0.3,
+        a: 1.0,
     };
-    shaders.insert(SHADER_WGSL_FILENAME.to_string(), frag_wgsl);
 
-    const TREE_FILEPATH: &str = "D:/_BLACK_ABYSS_DUNGEON/_BAD/shaded_sun/lw_examples/lw09_model_loading/assets/happy-tree.png";
+    let shader_paths = vec!["lw09_model_loading/assets/shader.wgsl"];
 
-    const VERTICES: &[irid::assets::ModelVertex] = &[];
+    let texture_path = "lw09_model_loading/assets/happy-tree.png";
 
-    const INDICES: &[u16] = &[
+    #[rustfmt::skip]
+    let vertices = &[irid::assets::ModelVertex] = &[];
+
+    #[rustfmt::skip]
+    let indices = &[
         0, 1, 4,
         1, 2, 4,
         2, 3, 4_u16,
     ];
 
-    let application = ApplicationBuilder::new_with_config(config)
-        .with_shaders(shaders)
-        .with_texture_path(std::path::Path::new(TREE_FILEPATH))
-        .with_vertices(VERTICES)
-        .with_indices(INDICES)
+    let application = ApplicationBuilder::new(listener)
+        .with_clear_color(clear_color)
+        .with_shader_paths(shader_paths)
+        .with_texture_path(texture_path)
+        .with_vertices(vertices)
+        .with_indices(indices)
         .build();
-    let _ = application.start(listener);
+    let _ = application.start();
 }
