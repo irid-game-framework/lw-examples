@@ -1,7 +1,5 @@
 //= USES ===========================================================================================
 
-use wgpu::Color;
-
 use irid::{ApplicationBuilder, Listener};
 use irid_assets::TextCoordsVertex;
 
@@ -22,13 +20,6 @@ fn main() {
     env_logger::init();
 
     let listener = GameListener {};
-
-    let clear_color = Color {
-        r: 0.1,
-        g: 0.2,
-        b: 0.3,
-        a: 1.0,
-    };
 
     let shader_paths = vec!["lw05_textures_bind_groups/assets/shader.wgsl"];
 
@@ -51,8 +42,7 @@ fn main() {
     ];
 
     let application = ApplicationBuilder::new(listener)
-        .with_clear_color(clear_color)
-        .with_shader_paths(shader_paths)
+        .with_clear_color_rgb(0.1, 0.2, 0.3)        .with_shader_paths(shader_paths)
         .with_texture_path(texture_path)
         .with_vertices(vertices)
         .with_indices(indices)

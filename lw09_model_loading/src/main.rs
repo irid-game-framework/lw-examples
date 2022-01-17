@@ -1,7 +1,5 @@
 //= USES ===========================================================================================
 
-use wgpu::Color;
-
 use irid::{ApplicationBuilder, Listener};
 use irid_assets::TextCoordsVertex;
 
@@ -23,13 +21,6 @@ fn main() {
 
     let listener = GameListener { };
 
-    let clear_color = Color {
-        r: 0.1,
-        g: 0.2,
-        b: 0.3,
-        a: 1.0,
-    };
-
     let shader_paths = vec!["lw09_model_loading/assets/shader.wgsl"];
 
     let texture_path = "lw09_model_loading/assets/happy-tree.png";
@@ -45,7 +36,7 @@ fn main() {
     ];
 
     let application = ApplicationBuilder::new(listener)
-        .with_clear_color(clear_color)
+        .with_clear_color_rgb(0.1, 0.2, 0.3)
         .with_shader_paths(shader_paths)
         .with_texture_path(texture_path)
         .with_vertices(vertices)
