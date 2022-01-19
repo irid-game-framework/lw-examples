@@ -1,7 +1,7 @@
 //= USES ===========================================================================================
 
-use irid::{Application, ApplicationBuilder, Listener};
-use irid_assets::ColorVertex;
+use irid::{ApplicationConfig, Listener, RendererConfig};
+use irid_assets::{ColorVertex};
 
 //= GAME LOGIC =====================================================================================
 
@@ -20,8 +20,6 @@ fn main() {
     env_logger::init();
 
     let listener = GameListener {};
-
-    let shader_paths = vec!["lw04_buffers_indices/assets/shader.wgsl"];
 
     // We arrange the vertices in counter clockwise order: top, bottom left, bottom right.
     // We do it this way partially out of tradition, but mostly because we specified in the
@@ -43,11 +41,15 @@ fn main() {
         2, 3, 4_u16,
     ];
 
-    let application: Application<'_, _, _, _, &str, _, _> = ApplicationBuilder::new(listener)
+    let renderer_config = RendererConfig::new()
         .with_clear_color_rgb(0.1, 0.2, 0.3)
-        .with_shader_paths(shader_paths)
+        .with_shader_path("lw04_buffers_indices/assets/shader.wgsl")
         .with_vertices(vertices)
-        .with_indices(indices)
+        .with_indices(indices);
+
+    let application = ApplicationConfig::new(listener)
+        .with_renderer_config(renderer_config)
         .build();
+
     let _ = application.start();
 }

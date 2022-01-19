@@ -1,7 +1,8 @@
 //= USES ===========================================================================================
 
-use irid::{ApplicationBuilder, Listener};
+use irid::{ApplicationConfig, Listener, PerspectiveCamera, RendererConfig};
 use irid_assets::TextCoordsVertex;
+use irid_renderer_interface::Camera;
 
 //= GAME LOGIC =====================================================================================
 
@@ -21,10 +22,6 @@ fn main() {
 
     let listener = GameListener {};
 
-    let shader_paths = vec!["lw06_uniforms_3d_camera/assets/shader.wgsl"];
-
-    let texture_path = "lw06_uniforms_3d_camera/assets/happy-tree.png";
-
     #[rustfmt::skip]
     let vertices = &[
         TextCoordsVertex { position: [-0.08682410,  0.49240386, 0.0], tex_coords: [0.4131759000, 0.00759614], },
@@ -41,12 +38,21 @@ fn main() {
         2, 3, 4_u16,
     ];
 
-    let application = ApplicationBuilder::new(listener)
+    // TODO: the correct way is: window_size.width as f32, window_size.height as f32
+    // TODO: ignore the proportion incorrecteness until renderer-builder-config refact
+    let camera = PerspectiveCamera::new(1920.0 / 2.0, 1080.0 / 2.0);
+
+    let renderer_config: RendererConfig<TextCoordsVertex> = RendererConfig::new()
         .with_clear_color_rgb(0.1, 0.2, 0.3)
-        .with_shader_paths(shader_paths)
-        .with_texture_path(texture_path)
+        .with_shader_path("lw06_uniforms_3d_camera/assets/shader.wgsl")
+        .with_texture_path("lw06_uniforms_3d_camera/assets/happy-tree.png")
         .with_vertices(vertices)
         .with_indices(indices)
+        .with_camera(camera);
+
+    let application = ApplicationConfig::new(listener)
+        .with_renderer_config(renderer_config)
         .build();
+
     let _ = application.start();
 }

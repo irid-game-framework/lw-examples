@@ -1,6 +1,6 @@
 //= USES ===========================================================================================
 
-use irid::{ApplicationBuilder, Listener};
+use irid::{ApplicationConfig, Listener, RendererConfig};
 use irid_assets::TextCoordsVertex;
 
 //= GAME LOGIC =====================================================================================
@@ -21,10 +21,6 @@ fn main() {
 
     let listener = GameListener {};
 
-    let shader_paths = vec!["lw05_textures_bind_groups/assets/shader.wgsl"];
-
-    let texture_path = "lw05_textures_bind_groups/assets/happy-tree.png";
-
     #[rustfmt::skip]
     let vertices = &[
         TextCoordsVertex { position: [-0.08682410,  0.49240386, 0.0], tex_coords: [0.4131759000, 0.00759614], },
@@ -41,11 +37,16 @@ fn main() {
         2, 3, 4_u16,
     ];
 
-    let application = ApplicationBuilder::new(listener)
-        .with_clear_color_rgb(0.1, 0.2, 0.3)        .with_shader_paths(shader_paths)
-        .with_texture_path(texture_path)
+    let renderer_config: RendererConfig<TextCoordsVertex> = RendererConfig::new()
+        .with_clear_color_rgb(0.1, 0.2, 0.3)
+        .with_shader_path("lw05_textures_bind_groups/assets/shader.wgsl")
+        .with_texture_path("lw05_textures_bind_groups/assets/happy-tree.png")
         .with_vertices(vertices)
-        .with_indices(indices)
+        .with_indices(indices);
+
+    let application = ApplicationConfig::new(listener)
+        .with_renderer_config(renderer_config)
         .build();
+
     let _ = application.start();
 }

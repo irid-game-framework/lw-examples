@@ -13,8 +13,10 @@ publish = false
 env_logger = "0.9"
 #irid = { git="https://github.com/irid-game-framework/irid" }
 #irid_assets = { git = "https://github.com/irid-game-framework/irid" }
+#irid_renderer_interface = { git = "https://github.com/irid-game-framework/irid" }
 irid = { path="D:/_IRID_PROJECT/_IRID-FRAMEWORK/irid-framework/irid"}
 irid_assets = { path="D:/_IRID_PROJECT/_IRID-FRAMEWORK/irid-framework/irid_assets"}
+irid_renderer_interface = { path="D:/_IRID_PROJECT/_IRID-FRAMEWORK/irid-framework/irid_renderer_interface"}
 log = "0.4"
 wgpu = "0.12"
 winit = "0.26"
