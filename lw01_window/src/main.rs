@@ -20,8 +20,7 @@ fn main() {
 
     let listener = GameListener {};
 
-    let application: Application<'_, _, _> =
-        ApplicationConfig::new(listener).build();
+    let application: Application<'_, _, _> = ApplicationConfig::new(listener).build();
 
     let _ = application.start();
 }

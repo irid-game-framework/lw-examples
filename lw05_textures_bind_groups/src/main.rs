@@ -37,7 +37,7 @@ fn main() {
         2, 3, 4_u16,
     ];
 
-    let renderer_config: RendererConfig<TextCoordsVertex> = RendererConfig::new()
+    let renderer_config = RendererConfig::<TextCoordsVertex>::new()
         .with_clear_color_rgb(0.1, 0.2, 0.3)
         .with_shader_path("lw05_textures_bind_groups/assets/shader.wgsl")
         .with_texture_path("lw05_textures_bind_groups/assets/happy-tree.png")
