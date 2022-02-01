@@ -1,6 +1,7 @@
 //= USES ===========================================================================================
 
-use irid::{Application, ApplicationConfig, Listener};
+use irid::{ApplicationConfig, Listener};
+use irid_assets::ColorVertex;
 
 //= LISTENER =======================================================================================
 
@@ -20,7 +21,7 @@ fn main() {
 
     let listener = GameListener {};
 
-    let application: Application<'_, _, _> = ApplicationConfig::new(listener).build();
+    let application = ApplicationConfig::<'_, _, ColorVertex>::new(listener).build();
 
     let _ = application.start();
 }

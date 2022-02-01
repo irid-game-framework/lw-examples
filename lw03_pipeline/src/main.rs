@@ -1,6 +1,6 @@
 //= USES ===========================================================================================
 
-use irid::{ApplicationConfig, Listener, RendererConfig};
+use irid::{ApplicationConfig, ColorVertex, Listener, RendererConfig};
 
 //= GAME LOGIC =====================================================================================
 
@@ -20,7 +20,7 @@ fn main() {
 
     let listener = GameListener {};
 
-    let renderer_config = RendererConfig::new()
+    let renderer_config = RendererConfig::<'_, ColorVertex>::new()
         .with_clear_color_rgb(0.1, 0.2, 0.3)
         .with_shader_path("lw03_pipeline/assets/shader.wgsl");
 

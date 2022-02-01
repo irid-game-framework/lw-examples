@@ -1,8 +1,6 @@
 //= USES ===========================================================================================
 
-use irid::{ApplicationConfig, Listener, PerspectiveCamera, RendererConfig};
-use irid_assets::TextCoordsVertex;
-use irid_renderer_interface::Camera;
+use irid::{ApplicationConfig, Camera, Listener, PerspectiveCamera, RendererConfig, TextCoordsVertex};
 
 //= GAME LOGIC =====================================================================================
 

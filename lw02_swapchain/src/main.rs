@@ -1,6 +1,7 @@
 //= USES ===========================================================================================
 
 use irid::{ApplicationConfig, Listener, RendererConfig};
+use irid_assets::ColorVertex;
 
 //= GAME LOGIC =====================================================================================
 
@@ -20,7 +21,7 @@ fn main() {
 
     let listener = GameListener {};
 
-    let renderer_config = RendererConfig::new().with_clear_color_rgb(0.1, 0.2, 0.3);
+    let renderer_config = RendererConfig::<'_, ColorVertex>::new().with_clear_color_rgb(0.1, 0.2, 0.3);
 
     let application = ApplicationConfig::new(listener)
         .with_renderer_config(renderer_config)
