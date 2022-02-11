@@ -1,7 +1,6 @@
 //= USES ===========================================================================================
 
-use irid::{ApplicationConfig, Listener, RendererConfig};
-use irid_assets::TextCoordsVertex;
+use irid::{ApplicationConfig, Listener, RendererConfig, TextCoordsVertex};
 
 //= GAME LOGIC =====================================================================================
 
