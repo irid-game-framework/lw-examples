@@ -1,7 +1,6 @@
 //= USES ===========================================================================================
 
-use irid::{ApplicationConfig, Listener};
-use irid_assets::ColorVertex;
+use irid::{ApplicationConfig, ColorVertex, Listener};
 
 //= LISTENER =======================================================================================
 

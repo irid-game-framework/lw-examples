@@ -37,7 +37,7 @@ fn main() {
     ];
 
     // TODO: the correct way is: window_size.width as f32, window_size.height as f32
-    // TODO: ignore the proportion incorrecteness until renderer-builder-config refact
+    // TODO: ignore the proportion incorrectness until renderer-builder-config refact
     let camera = PerspectiveCamera::new(1920.0 / 2.0, 1080.0 / 2.0);
 
     let renderer_config: RendererConfig<TextCoordsVertex> = RendererConfig::new()

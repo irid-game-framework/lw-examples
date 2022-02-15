@@ -1,7 +1,6 @@
 //= USES ===========================================================================================
 
-use irid::{ApplicationConfig, Listener, RendererConfig};
-use irid_assets::ColorVertex;
+use irid::{ApplicationConfig, ColorVertex, Listener, RendererConfig};
 
 //= GAME LOGIC =====================================================================================
 
